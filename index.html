@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progresso de Assinaturas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      text-align: center;
+      width: 80%;
+      max-width: 600px;
+    }
+    .progress-bar {
+      background-color: #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      margin: 20px 0;
+    }
+    .progress-bar-fill {
+      height: 30px;
+      width: 0;
+      background-color: #4caf50;
+      transition: width 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Progresso de Assinaturas</h1>
+    <p id="progress-text">Coletamos <span id="current-count">0</span> de <span id="total-count">1000</span> assinaturas!</p>
+    <div class="progress-bar">
+      <div id="progress-bar-fill" class="progress-bar-fill"></div>
+    </div>
+  </div>
+
+  <script>
+    // Configuração inicial
+    const totalAssinaturas = 1000;
+    let assinaturasColetadas = 200; // Este número pode ser atualizado com dados reais
+
+    document.getElementById("total-count").textContent = totalAssinaturas;
+    document.getElementById("current-count").textContent = assinaturasColetadas;
+
+    function atualizarBarra() {
+      let porcentagem = (assinaturasColetadas / totalAssinaturas) * 100;
+      document.getElementById("progress-bar-fill").style.width = porcentagem + "%";
+    }
+
+    atualizarBarra();
+  </script>
+</body>
+</html>
